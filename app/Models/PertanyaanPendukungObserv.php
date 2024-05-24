@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class PertanyaanPendukungObserv extends Model
 {
     use HasFactory;
+    protected $guarded = ['id'];
+    public function daftarunitkompetensi()
+    {
+        return $this->belongsTo(DaftarUnitKompetensi::class);
+    }
+
 }

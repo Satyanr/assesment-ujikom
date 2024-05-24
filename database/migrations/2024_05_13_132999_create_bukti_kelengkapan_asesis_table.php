@@ -11,10 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('bukti_kelengkapan_pemohons', function (Blueprint $table) {
+        Schema::create('bukti_kelengkapan_asesis', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('data_sertifikasi_id')->constrained('data_sertifikasis')->cascadeOnDelete();
-            $table->string('syarat')->nullable();
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->enum('terpenuhi', ['Ya', 'Tidak'])->default('Tidak')->nullable();
+            $table->string('path_bukti')->nullable();
             $table->timestamps();
         });
     }
@@ -24,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('bukti_kelengkapan_pemohons');
+        Schema::dropIfExists('bukti_kelengkapan_asesis');
     }
 };
