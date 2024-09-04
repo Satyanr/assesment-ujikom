@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class BioDataController extends Controller
+class AdminController extends Controller
 {
-    
+    //
 }
